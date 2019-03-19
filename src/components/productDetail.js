@@ -1,10 +1,13 @@
-import React from 'react'
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React from 'react';
 import Axios from 'axios';
+import swal from 'sweetalert';
 import { urlApi } from '../support/urlApi';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class ProductDetail extends React.Component{
     state = {product : {}}
+    
     componentDidMount(){
         this.getDataApi()
     }
@@ -24,6 +27,20 @@ class ProductDetail extends React.Component{
             this.refs.inputQty.value = 1
         }
     }
+
+    
+
+    onBtnCart=()=>{
+        var {nama, img, harga, diskon} = this.state.product
+        var qty = parseInt(this.refs.inputQty.value)
+        Axios.post(urlApi + '/cart', {userId : this.props.kucing, namaProduct : nama, img, qty, harga :harga, diskon: diskon })
+        .then((res) => {
+            swal('Add To Cart' , 'Success' , 'success')
+        }).catch((err) => {
+            console.log(err)
+        });
+    }
+
      render(){
         var {nama,img,discount,deskripsi,harga} = this.state.product
         return(
@@ -93,10 +110,9 @@ class ProductDetail extends React.Component{
                             <div className='row mt-4'>
                                 <input type='button' className='btn border-secondary col-md-2' value='Add To Wishlist' />
                                 <input type='button' className='btn btn-primary col-md-3' value='Beli Sekarang' />
-                                <input type='button' className='btn btn-success col-md-3' value='Masukan Ke Keranjang' />
+                                <input onClick={this.onBtnCart} type='button' className='btn btn-success col-md-3' value='Masukan Ke Keranjang' />
                             </div>
                         }
-                        
                     </div>
                 </div>
             </div>
@@ -106,7 +122,8 @@ class ProductDetail extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        username : state.user.username
+        username : state.user.username,
+        kucing : state.user.id
     }
 }
 

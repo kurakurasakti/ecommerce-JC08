@@ -1,9 +1,11 @@
 import React,  { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import terserah from 'universal-cookie'
+import {urlApi} from './../support/urlApi'
 import { resetUser } from './../1.actions'
+import Axios from 'axios';
 
 const objCookie = new terserah()
 class HeaderKu extends Component{
@@ -22,11 +24,31 @@ class HeaderKu extends Component{
        });
     }
 
+    state = {tCart : 0}
+
+    componentDidUpdate(){
+        Axios.get(urlApi+'/cart?userId='+this.props.kucing)
+        .then((res) => {
+            if (res.data.length>0) {
+                var a = 0
+                for (let i = 0; i < res.data.length; i++) {
+                    a++
+                    
+                }
+                this.setState({tCart : a})
+            }
+        }).catch((err) => {
+            
+        });
+    }
     onBtnLogout = () => {
         objCookie.remove('userData')
         this.props.resetUser()
     }
 
+    onBtnHistori=()=>{
+        return <Redirect to='/histori'/>
+    }
     render(){
             if(this.props.bebas === "")
             {
@@ -78,7 +100,7 @@ class HeaderKu extends Component{
                                         <NavLink>Hi , {this.props.bebas}</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <Link to="/login"><NavLink className="btn btn-default border-primary" style={{fontSize:"14px"}}><i class="fas fa-shopping-cart"></i> Cart </NavLink></Link>
+                                        <Link to="/cart"><NavLink className="btn btn-default border-primary" style={{fontSize:"14px"}}><i class="fas fa-shopping-cart"></i> Cart({this.state.tCart}) </NavLink></Link>
                                     </NavItem>
                                     <UncontrolledDropdown nav inNavbar>
                                         <DropdownToggle nav caret>
@@ -96,9 +118,11 @@ class HeaderKu extends Component{
                                             :
                                             null
                                         }
-                                        <DropdownItem>
+                                           <Link to='/histori'> 
+                                        <DropdownItem >
                                             Histori Transaksi
                                         </DropdownItem>
+                                        </Link>
                                         <DropdownItem>
                                             Edit Profile
                                         </DropdownItem>
@@ -121,7 +145,9 @@ class HeaderKu extends Component{
 const mapStateToProps = (state) => {
     return {
         bebas : state.user.username,
-        role : state.user.role
+        role : state.user.role,
+        kucing : state.user.id
+        // kodok : state.cart.totalCart
     }
 }
 

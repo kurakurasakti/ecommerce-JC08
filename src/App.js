@@ -4,9 +4,11 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Product from './components/productList'
+import Histori from './components/TrxHistory'
 import ManageProduct from './components/admin/manageProduct'
 import PageNotFound from './components/pageNotFound'
 import ProductDetail from './components/productDetail'
+import Cart from './components/Cart'
 import ScrollToTop from './components/scrollToTop'
 import { Route ,withRouter, Switch } from 'react-router-dom' 
 import {connect} from 'react-redux'
@@ -37,6 +39,8 @@ class App extends Component {
                 <Route path='/register' component={Register} exact/>
                 <Route path='/product' component={Product} exact/>
                 <Route path='/manage' component={ManageProduct} exact/>
+                <Route path='/cart' component={Cart} exact/>
+                <Route path='/histori' component={Histori} exact/>
                 <Route path='/product-detail/:terserah' component={ProductDetail} exact/>
                 <Route path='*' component={PageNotFound} exact/>
             </Switch>

@@ -1,11 +1,17 @@
 import React from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import swal from 'sweetalert'
+import Login from './Login'
+import {connect} from 'react-redux'
+import {Link, Redirect} from 'react-router-dom'
 import { urlApi } from './../support/urlApi'
 import './../support/css/product.css'
 
 class ProductList extends React.Component{
-    state = {listProduct : []}
+    state = {
+        listProduct : [],
+        productData : {}
+    }
 
     componentDidMount(){
         this.getDataProduct()
@@ -15,6 +21,31 @@ class ProductList extends React.Component{
         .then((res) => this.setState({listProduct : res.data}))
         .catch((err) => console.log(err))
     }
+    getDataProductWithId = (id) => {
+        alert(id)
+        axios.get(urlApi + '/products/'+id)
+        .then((res) => this.setState({productData : res.data}))
+        .catch((err) => console.log(err))
+        this.onBtnCart()
+    }
+    onBtnCart=()=>{
+        if (this.props.anjing==="") {
+            alert('To mas fikri, ini sudah pakai Redirect tapi tetep gamau ke redirect ke login.')
+            return <Redirect to="/login"/>
+        }
+            var {nama, img, harga, diskon} = this.state.productData
+            var qty = 1
+            axios.post(urlApi + '/cart', {userId : this.props.kucing, namaProduct : nama, img, qty: qty, harga :harga, diskon: diskon })
+            .then((res) => {
+                swal('Add To Cart' , 'Success' , 'success')
+                this.getDataProduct()
+            }).catch((err) => {
+                console.log(err)
+            });
+        
+        
+    }
+
     renderProdukJsx = () => {
         var jsx = this.state.listProduct.map((val) => {
             return (
@@ -39,7 +70,7 @@ class ProductList extends React.Component{
                     }
 
                     <p style={{display:'inline' , marginLeft:'10px',fontWeight:'500'}}>Rp. {val.harga - (val.harga*(val.discount/100))}</p>
-                    <input type='button' className='d-block btn btn-primary' value='Add To Cart' />
+                    <input type='button' onClick={()=> this.getDataProductWithId(val.id)} className='d-block btn btn-primary' value='Add To Cart' />
                     </div>
                 </div>
             )
@@ -58,9 +89,15 @@ class ProductList extends React.Component{
     }
 }
 
-export default ProductList
 
+const mapStateToProps=(state) =>{
+    return{
+        kucing : state.user.id,
+        anjing : state.user.username
 
+    }
+}
+export default connect(mapStateToProps)(ProductList)
 
 // var a = 3
 // if(a > 0){

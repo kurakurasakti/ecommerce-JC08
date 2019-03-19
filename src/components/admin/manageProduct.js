@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -128,7 +129,7 @@ class CustomPaginationActionsTable extends React.Component {
   }
 
   getDataApi =() => {
-      Axios.get(urlApi + '/products')
+      Axios.get(urlApi + '/cart/' + this.props.kucing)
       .then((res) => this.setState({rows : res.data}) )
       .catch((err) => console.log(err))
   }
@@ -391,7 +392,8 @@ CustomPaginationActionsTable.propTypes = {
 
 const mapStateToProps = (state) => {
   return{
-    role : state.user.role
+    role : state.user.role,
+    kucing : state.user.id
   }
 }
 
