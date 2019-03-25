@@ -2,27 +2,180 @@
   "users": [
     {
       "id": 1,
-      "username": "fikri",
-      "password": "rahasia123"
+      "username": "roy1",
+      "password": "asd123",
+      "role": "admin"
     },
     {
       "id": 2,
-      "username": "Seto",
-      "password": "rahasia123"
+      "username": "roy",
+      "password": "asd123",
+      "role": "user"
     },
     {
-      "username": "jamaludin",
-      "password": "123",
-      "id": 3
+      "id": 3,
+      "username": "fikri",
+      "password": "asd123",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "username": "fikri",
+      "password": "asd123",
+      "role": "user"
     }
   ],
-  "products" : 
-  [
-      {"id":1 , "nama":"Kaos Polos Hitam", "harga":20000 ,"category":"polos", "discount":10,"deskripsi":"Kaos Terbaik" ,"img":"https://www.jakartanotebook.com/images/products/99/63/19075/2/kaos-polos-katun-pria-o-neck-size-m-81402b-or-t-shirt-black-24.jpg"},
-      {"id":2 , "nama":"The Dark Knight" , "harga":40000,"category":"sablon" , "discount":0,"deskripsi":"Kaos Terbaik","img":"https://store.primagraphia.co.id/wp-content/uploads/2014/08/konsep-kaos.jpg"},
-      {"id":3 , "nama":"Epic ComeBack" , "harga": 30000,"category":"sablon" , "discount":20,"deskripsi":"Kaos Terbaik","img":"https://ecs7.tokopedia.net/img/product-1/2018/7/27/27345219/27345219_c9909d3f-8e63-4581-a242-63995611577d_1000_1000.jpg"},
-      {"id":4 , "nama":"Indonesia Merdeka" , "harga":40000,"category":"sablon" , "discount":40,"deskripsi":"Kaos Terbaik","img":"https://www.satubaju.com/img/editor/img_iscums/153/3705153_m.jpg"},
-      {"id":5 , "nama": "Welcome", "harga": 25000,"category":"sablon" , "discount":20,"deskripsi":"Kaos Terbaik","img":"http://sokwear.com/82-large_default/welcome-to-state-of-kaos.jpg"},
-      {"id":6 , "nama":"Kids Jaman Now" , "harga": 30000,"category": "sablon" , "discount":40,"deskripsi":"Kaos Terbaik","img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREPOGo_ydVkhFaDmvBQTO4XrSIePibNXeuWFsXdwSID8VjrGSS7w"}
-  ]
+  "userDetails": [
+    {
+      "id": 1,
+      "userId": 2,
+      "fristName": "roy",
+      "lastName": "lalla",
+      "alamat": "Perumahan citra garden 1 blok c2/23",
+      "kota": "DKI Jakarta",
+      "kodePos": "11840",
+      "phoneNumber": "085779221996"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "fristName": "roy",
+      "lastName": "lalla",
+      "alamat": "Perumahan citra garden 1 blok c2/23",
+      "kota": "DKI Jakarta",
+      "kodePos": "11840",
+      "phoneNumber": "085779221996"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "fristName": "budi",
+      "lastName": "lalla",
+      "alamat": "Perumahan citra garden 1 blok c2/23",
+      "kota": "DKI Jakarta",
+      "kodePos": "11840",
+      "phoneNumber": "085779221996"
+    }
+  ],
+  "products": [
+    {
+      "id": 6,
+      "nama": "kaos1",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 7,
+      "nama": "kaos2",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 8,
+      "nama": "kaos3",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 9,
+      "nama": "kaos4",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 10,
+      "nama": "kaos5",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 11,
+      "nama": "kaos6",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 12,
+      "nama": "kaos7",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 13,
+      "nama": "kaos8",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    },
+    {
+      "id": 14,
+      "nama": "kaos9",
+      "harga": 50000,
+      "discount": 10,
+      "deskripsi": "kaos terbik mantap jiwa",
+      "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+      "category": "mahal"
+    }
+  ],
+  "transaction": [
+    {
+      "id": 1,
+      "userId": 2,
+      "transactionDetail": [
+        {
+          "namaProduct": "kaos",
+          "img": "http://thegoodsdept.com/media/catalog/product/cache/1/rotator_image/270x334/9df78eab33525d08d6e5fb8d27136e95/0/6/060617026922_.jpg",
+          "qty": 2,
+          "harga": 10000
+        },
+        {
+          "namaProduct": "kaos",
+          "img": "http://thegoodsdept.com/media/catalog/product/cache/1/rotator_image/270x334/9df78eab33525d08d6e5fb8d27136e95/0/6/060617026922_.jpg",
+          "qty": 2,
+          "harga": 10000
+        }
+      ],
+      "transactionDate": "2019-09-22",
+      "total": 40000
+    },
+    {
+      "userId": 2,
+      "transactionDetail": [
+        {
+          "namaProduct": "kaos",
+          "img": "https://cdn.shopify.com/s/files/1/1155/1758/products/Ambush_T-Shirt_Mockup_Front_570x570_crop_center.jpg?v=1521837663",
+          "qty": 1,
+          "harga": 50000,
+          "diskon": 10
+        }
+      ],
+      "transactionDate": "19-2-2019",
+      "total": 45000,
+      "id": 5
+    }
+  ],
+  "cart": []
 }
